@@ -3,6 +3,19 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<head>
+<script type="text/javascript">
+     function cancelAudio()
+     {
+        document.getElementById("audioCancel").addEventListener('click', 
+		() => document.getElementById("audioPlayer").src = "cancel.mp3")
+     }
+     function cancelVideo(){
+        document.getElementById("videoCancel").addEventListener('click', 
+		() => document.getElementById("videoPlayer").src = "cancel.mp4")
+     }
+</script>
+</head>
 
 <div class="text-center">
     <h1 class="display-4">Hello World Player</h1>
@@ -17,7 +30,8 @@
             <video id="videoPlayer" width="320" height="240" controls>
                 <source src="@ViewData["videoFile"]">
             </video>
-            <button id="videoCancel">videoCancel</button>
+            <button id="videoCancel" onclick="cancelVideo()"
+            >videoCancel</button>
         </div>
     }
     @if (ViewData["audioFile"] != null){
@@ -26,7 +40,7 @@
             <audio id="audioPlayer" controls>
                 <source src="@ViewData["audioFile"]">
             </audio>
-            <button id="audioCancel">audioCancel</button>
+            <button id="audioCancel" onclick="cancelAudio()">audioCancel</button>
         </div>
     }
 </div>
