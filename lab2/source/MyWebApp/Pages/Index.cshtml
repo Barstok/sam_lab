@@ -17,6 +17,7 @@
             <video id="videoPlayer" width="320" height="240" controls>
                 <source src="@ViewData["videoFile"]">
             </video>
+            <button id="videoCancel">videoCancel</button>
         </div>
     }
     @if (ViewData["audioFile"] != null){
@@ -25,6 +26,7 @@
             <audio id="audioPlayer" controls>
                 <source src="@ViewData["audioFile"]">
             </audio>
+            <button id="audioCancel">audioCancel</button>
         </div>
     }
 </div>
