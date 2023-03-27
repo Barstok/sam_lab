@@ -6,5 +6,20 @@
 
 <div class="text-center">
     <h1 class="display-4">Hello World Player</h1>
-    
+    @if (ViewData["videoFile"] != null){
+        <div>
+            <p>video</p>
+            <video width="320" height="240" controls>
+                <source src="@ViewData["videoFile"]">
+            </video>
+        </div>
+    }
+    @if (ViewData["audioFile"] != null){
+        <div>
+            <p>audio</p>
+            <audio controls>
+                <source src="@ViewData["audioFile"]">
+            </audio>
+        </div>
+    }
 </div>
