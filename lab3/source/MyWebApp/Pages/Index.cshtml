@@ -1,0 +1,49 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<head>
+<script type="text/javascript">
+     function cancelAudio()
+     {
+        document.getElementById("audioPlayer").src = "cancel.mp3"
+     }
+     function cancelVideo(){
+        document.getElementById("videoPlayer").src = "cancel.mp4"
+     }
+     function cancelImage(){
+        document.getElementById("posterImage").src = "cancel.jpg"
+     }
+</script>
+</head>
+
+<div class="text-center">
+    <h1 class="display-4">Hello World Player</h1>
+    @if (ViewData["imgFile"] != null){
+        <div>
+            <img id="posterImage" src="@ViewData["imgFile"]" width="300px" height="300px">
+            <button id="imgCancel" onclick="cancelImage()"
+            >imageCancel</button>
+        </div>
+    }
+    @if (ViewData["videoFile"] != null){
+        <div>
+            <p>video</p>
+            <video id="videoPlayer" width="320" height="240" controls>
+                <source src="@ViewData["videoFile"]">
+            </video>
+            <button id="videoCancel" onclick="cancelVideo()"
+            >videoCancel</button>
+        </div>
+    }
+    @if (ViewData["audioFile"] != null){
+        <div>
+            <p>audio</p>
+            <audio id="audioPlayer" controls>
+                <source src="@ViewData["audioFile"]">
+            </audio>
+            <button id="audioCancel" onclick="cancelAudio()">audioCancel</button>
+        </div>
+    }
+</div>
