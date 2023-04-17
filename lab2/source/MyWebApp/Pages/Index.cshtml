@@ -12,6 +12,9 @@
      function cancelVideo(){
         document.getElementById("videoPlayer").src = "cancel.mp4"
      }
+     function cancelImage(){
+        document.getElementById("posterImage").src = "cancel.jpg"
+     }
 </script>
 </head>
 
@@ -20,6 +23,8 @@
     @if (ViewData["imgFile"] != null){
         <div>
             <img id="posterImage" src="@ViewData["imgFile"]" width="300px" height="300px">
+            <button id="imgCancel" onclick="cancelImage()"
+            >imageCancel</button>
         </div>
     }
     @if (ViewData["videoFile"] != null){
