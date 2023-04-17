@@ -25,6 +25,8 @@
             <img id="posterImage" src="@ViewData["imgFile"]" width="300px" height="300px">
             <button id="imgCancel" onclick="cancelImage()"
             >imageCancel</button>
+            <button id="imgAdd"
+            >Add image</button>
         </div>
     }
     @if (ViewData["videoFile"] != null){
@@ -35,6 +37,8 @@
             </video>
             <button id="videoCancel" onclick="cancelVideo()"
             >videoCancel</button>
+            <button id="videoAdd"
+            >Add video</button>
         </div>
     }
     @if (ViewData["audioFile"] != null){
@@ -44,6 +48,8 @@
                 <source src="@ViewData["audioFile"]">
             </audio>
             <button id="audioCancel" onclick="cancelAudio()">audioCancel</button>
+            <button id="audioAdd"
+            >Add audio</button>
         </div>
     }
     <table id="playlist_table">
