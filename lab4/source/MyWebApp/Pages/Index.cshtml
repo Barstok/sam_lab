@@ -15,9 +15,8 @@
      function cancelImage(){
         document.getElementById("posterImage").src = "cancel.jpg"
      }
-     function removeRow(){
-        
-        
+     function removeRowButtonFun(el){
+        el.parentElement.parentElement.remove();
      }
      function addToPlaylistTable(type){
         let table = document.getElementById("playlist_table");
@@ -43,7 +42,7 @@
             cell2.innerHTML = "Image"
         }
         let cell3 = row.insertCell();
-        cell3.innerHTML = "<button class=\"removeRowButton\" onclick=\"this.parentElement.parentElement.remove()\">Delete</button>"
+        cell3.innerHTML = "<button class=\"removeRowButton\" onclick=\"removeRowButtonFun(this)\">Delete</button>"
      }
 </script>
 </head>
