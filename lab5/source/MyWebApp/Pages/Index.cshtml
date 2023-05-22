@@ -1,0 +1,91 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<head>
+<script type="text/javascript">
+     function cancelAudio()
+     {
+        document.getElementById("audioPlayer").src = "cancel.mp3"
+     }
+     function cancelVideo(){
+        document.getElementById("videoPlayer").src = "cancel.mp4"
+     }
+     function cancelImage(){
+        document.getElementById("posterImage").src = "cancel.jpg"
+     }
+     function removeRowButtonFun(el){
+        el.parentElement.parentElement.remove();
+     }
+     function addToPlaylistTable(type){
+        let table = document.getElementById("playlist_table");
+        let len = table.rows.length;
+        let row = table.insertRow(len);
+        let pos = len -1;
+        let cell0 = row.insertCell();
+        cell0.innerHTML = pos.toString();
+        let cell1 = row.insertCell();
+        let cell2 = row.insertCell();
+        if(type==0){
+            let audioPlayer = document.getElementById("audioPlayer");
+            cell1.innerHTML = audioPlayer.src;
+            cell2.innerHTML = "Audio"
+        }
+        else if(type==1){
+            let videoPlayer = document.getElementById("videoPlayer");
+            cell1.innerHTML = videoPlayer.src
+            cell2.innerHTML = "Video"
+        }else if( type==2){
+            let imagePoster = document.getElementById("posterImage");
+            cell1.innerHTML = imagePoster.src
+            cell2.innerHTML = "Image"
+        }
+        let cell3 = row.insertCell();
+        cell3.innerHTML = "<button class=\"removeRowButton\" onclick=\"removeRowButtonFun(this)\">Delete</button>"
+     }
+</script>
+</head>
+
+<div class="text-center">
+    <h1 class="display-4">Hello World Player</h1>
+    @if (ViewData["imgFile"] != null){
+        <div>
+            <img id="posterImage" src="@ViewData["imgFile"]" width="300px" height="300px">
+            <button id="imgCancel" onclick="cancelImage()"
+            >imageCancel</button>
+            <button id="imgAdd" onclick="addToPlaylistTable(2)"
+            >Add image</button>
+        </div>
+    }
+    @if (ViewData["videoFile"] != null){
+        <div>
+            <p>video</p>
+            <video id="videoPlayer" width="320" height="240"
+            src="@ViewData["videoFile"]" controls>
+            </video>
+            <button id="videoCancel" onclick="cancelVideo()"
+            >videoCancel</button>
+            <button id="videoAdd" onclick="addToPlaylistTable(1)"
+            >Add video</button>
+        </div>
+    }
+    @if (ViewData["audioFile"] != null){
+        <div>
+            <p>audio</p>
+            <audio id="audioPlayer" src="@ViewData["audioFile"]" controls>
+            </audio>
+            <button id="audioCancel" onclick="cancelAudio()">audioCancel</button>
+            <button id="audioAdd" onclick="addToPlaylistTable(0)"
+            >Add audio</button>
+        </div>
+    }
+    <table id="playlist_table">
+        <tr>
+         <th>No.</th>
+         <th>URL</th>
+         <th>Type</th>
+         <th>Action</th>
+        </tr>
+    </table>
+</div>
