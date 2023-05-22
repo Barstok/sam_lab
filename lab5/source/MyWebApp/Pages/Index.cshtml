@@ -18,6 +18,20 @@
      function removeRowButtonFun(el){
         el.parentElement.parentElement.remove();
      }
+     function moveRowUpButton(el){
+        const row = el.parentElement.parentElement
+
+        let prevRow = row.previousElementSibling;
+
+        row.parentNode.insertBefore(row, prevRow);
+     }
+     function moveRowDownButton(el){
+        const row = el.parentElement.parentElement
+
+        let prevRow = row.nextElementSibling;
+
+        row.parentNode.insertBefore(row, prevRow);
+     }
      function addToPlaylistTable(type){
         let table = document.getElementById("playlist_table");
         let len = table.rows.length;
@@ -42,7 +56,7 @@
             cell2.innerHTML = "Image"
         }
         let cell3 = row.insertCell();
-        cell3.innerHTML = "<button class=\"removeRowButton\" onclick=\"removeRowButtonFun(this)\">Delete</button>        <button class=\"moveRowUpButton\" onclick=\"removeRowButtonFun(this)\">Up</button>\n<button class=\"moveRowDownButton\" onclick=\"removeRowButtonFun(this)\">Down</button>"
+        cell3.innerHTML = "<button class=\"removeRowButton\" onclick=\"removeRowButtonFun(this)\">Delete</button>        <button class=\"moveRowUpButton\" onclick=\"moveRowUpButton(this)\">Up</button>\n<button class=\"moveRowDownButton\" onclick=\"moveRowDownButton(this)\">Down</button>"
      }
 </script>
 </head>
