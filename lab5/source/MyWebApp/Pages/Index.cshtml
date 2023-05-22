@@ -30,7 +30,7 @@
 
         let prevRow = row.nextElementSibling;
 
-        row.parentNode.insertBefore(row, prevRow);
+        row.parentNode.insertBefore(row, prevRow.nextElementSibling);
      }
      function addToPlaylistTable(type){
         let table = document.getElementById("playlist_table");
