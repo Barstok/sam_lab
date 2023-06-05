@@ -82,6 +82,8 @@
             >videoCancel</button>
             <button id="videoAdd" onclick="addToPlaylistTable(1)"
             >Add video</button>
+            <button id="videoPlay">Play Video</button>
+            <button id="videoPause">Pause Video</button>
         </div>
     }
     @if (ViewData["audioFile"] != null){
@@ -92,6 +94,8 @@
             <button id="audioCancel" onclick="cancelAudio()">audioCancel</button>
             <button id="audioAdd" onclick="addToPlaylistTable(0)"
             >Add audio</button>
+            <button id="audioPlay">Play Audio</button>
+            <button id="audioPause">Pause Audio</button>
         </div>
     }
     <table id="playlist_table">
