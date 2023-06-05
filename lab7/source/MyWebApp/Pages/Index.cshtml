@@ -43,14 +43,27 @@
 
         let prevRow = row.previousElementSibling;
 
-        row.parentNode.insertBefore(row, prevRow);
+        if(prevRow.rowIndex > 0){
+            row.parentNode.insertBefore(row, prevRow);
+        }
+        else{
+            row.parentNode.appendChild(row);
+        }
      }
      function moveRowDownButton(el){
         const row = el.parentElement.parentElement
 
         let prevRow = row.nextElementSibling;
 
-        row.parentNode.insertBefore(row, prevRow.nextElementSibling);
+		let firstRow = document.querySelector('tr');
+		
+        if (row.rowIndex < document.querySelectorAll('tr').length - 1) {
+			row.parentNode.insertBefore(row, prevRow.nextElementSibling);
+		}
+		else if (firstRow) {
+			row.parentNode.insertBefore(row, firstRow.nextElementSibling);
+		}
+
      }
      function addToPlaylistTable(type){
         let table = document.getElementById("playlist_table");
