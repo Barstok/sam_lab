@@ -18,6 +18,26 @@
      function removeRowButtonFun(el){
         el.parentElement.parentElement.remove();
      }
+     function playVideo(){
+        let vid = document.getElementById("videoPlayer");
+
+        vid.play();
+     }
+     function pauseVideo(){
+        let vid = document.getElementById("videoPlayer");
+
+        vid.pause();
+     }
+     function playAudio(){
+        let aud = document.getElementById("audioPlayer");
+
+        aud.play();
+     }
+     function pauseAudio(){
+        let aud = document.getElementById("audioPlayer");
+
+        aud.pause();
+     }
      function moveRowUpButton(el){
         const row = el.parentElement.parentElement
 
@@ -82,8 +102,8 @@
             >videoCancel</button>
             <button id="videoAdd" onclick="addToPlaylistTable(1)"
             >Add video</button>
-            <button id="videoPlay">Play Video</button>
-            <button id="videoPause">Pause Video</button>
+            <button id="videoPlay" onclick="playVideo()">Play Video</button>
+            <button id="videoPause" onclick="pauseVideo()">Pause Video</button>
         </div>
     }
     @if (ViewData["audioFile"] != null){
@@ -94,8 +114,8 @@
             <button id="audioCancel" onclick="cancelAudio()">audioCancel</button>
             <button id="audioAdd" onclick="addToPlaylistTable(0)"
             >Add audio</button>
-            <button id="audioPlay">Play Audio</button>
-            <button id="audioPause">Pause Audio</button>
+            <button id="audioPlay" onclick="playAudio()">Play Audio</button>
+            <button id="audioPause" onclick="pauseAudio()">Pause Audio</button>
         </div>
     }
     <table id="playlist_table">
